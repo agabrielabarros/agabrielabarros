@@ -50,6 +50,7 @@ Além de código, sou cofundadora do **Clube Bergamotas** um espaço para discus
 **Let's build something meaningful together!** 🚀
 
 ## 🐍 Contribuições
-![Snake animation](https://raw.githubusercontent.com/agabrielabarros/agabrielabarros/output/github-contribution-grid-snake.svg)
+![Snake animation](https://raw.githubusercontent.com/agabrielabarros/agabrielabarros/output/github-snake.svg)
+
 
 
