@@ -9,15 +9,21 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
+      
       - uses: Platane/snk@master
         id: snake-svg
         with:
-          github_user_name: ${{ github.repository_owner }}
-          outputs: |
-            dist/github-contribution-grid-snake.svg
-            dist/github-contribution-grid-snake-dark.svg?palette=github-dark
-      - uses: crazy-max/ghaction-github-pages@v3.1.0
+          github_user_name: agabrielabarros
+          svg_out_path: dist/github-snake.svg
+          dark_mode: true
+      
+      - uses: actions/upload-artifact@v3
+        with:
+          name: github-snake
+          path: dist/github-snake.svg
+          
+      - uses: crazy-max/ghaction-github-pages@v3
         with:
           target_branch: output
           build_dir: dist
