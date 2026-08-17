@@ -6,27 +6,21 @@ on:
   workflow_dispatch:
 
 jobs:
-  generate:
+  build:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
       
-      - uses: actions/setup-node@v4
-        with:
-          node-version: '18'
-      
-      - name: Generate snake animation
-        uses: Platane/snk@master
+      - uses: Platane/snk@master
         with:
           github_user_name: agabrielabarros
           outputs: |
             dist/github-snake.svg
             dist/github-snake-dark.svg?palette=github-dark
       
-      - name: Push generated files to output branch
-        uses: actions/upload-pages-artifact@v2
+      - uses: crazy-max/ghaction-github-pages@v3
         with:
-          path: dist
-      
-      - name: Deploy to GitHub Pages
-        uses: actions/deploy-pages@v2
+          target_branch: output
+          build_dir: dist
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
